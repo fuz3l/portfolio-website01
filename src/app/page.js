@@ -41,7 +41,7 @@ export default function Home() {
 
       {/* Paragraph */}
       <p className="text-xl text-center max-w-2xl text-gray-300 leading-relaxed">
-       A Machine Learning Engineer     </p>
+       A Machine Learning Enthusiast     </p>
 
       {/* CTA Button */}
       <Link
