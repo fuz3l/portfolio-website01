@@ -2,6 +2,7 @@
 
 import Link from "next/link"
 import { useRef } from "react"
+import Idea from "../components/Idea"
 
 const projects = [
   {
@@ -39,6 +40,7 @@ export default function Projects() {
           
         ))}
       </div>
+      <Idea />
     </div>
   )
 }

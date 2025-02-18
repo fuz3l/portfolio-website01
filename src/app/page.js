@@ -1,5 +1,5 @@
 "use client";
-import { FaLocationDot, FaGraduationCap  } from "react-icons/fa6";
+import { FaLocationDot,FaBookOpen, FaGraduationCap  } from "react-icons/fa6";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { useRef } from "react"
@@ -22,7 +22,7 @@ const  skills = [
     name: "C/C++"
   },
   {
-    name: "Web Development"
+    name: "Web Dev."
   },
   {
     name: "Data Structures"
@@ -64,10 +64,13 @@ export default function Home() {
     <h3 className="font-semibold text-left ml-[3px] text-black text-xl">Silver Oak University</h3>
     </div>
     <div className="flex">
+    <FaBookOpen className="text-sm text-black" /><p className="text-sm  ml-[3px] font-normal text-black">Bachelor Of Computer Applications</p>
+    </div>
+    <div className="flex">
     <FaLocationDot className="text-sm text-black" /><span className="text-sm ml-[5px] font-semibold text-black">Ahmedabad</span>  <p className="text-sm  ml-[3px] font-normal text-black">| July-2022 - Present</p>
     </div>
     <div className="mt-3">
-     <p className="text-sm text-black mb-2 font-semibold">Studied subjects like</p>
+     <p className="text-sm text-black mb-2 font-semibold">Studied subjects like:</p>
      <div ref={skillsRef} className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 justify-center">
   {skills.map((skill, index) => (
     <div 

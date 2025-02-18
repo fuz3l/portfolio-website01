@@ -14,7 +14,7 @@ export default function About() {
         />
         <div className="space-y-4 stagger-animate">
           <p>
-            Hello! I'm an AI/ML engineer passionate about pushing the boundaries of what's possible with artificial
+            Hello! I'm an AI/ML Enthusiast passionate about pushing the boundaries of what's possible with artificial
             intelligence and machine learning. With a strong background in data science and computer vision, I
             specialize in developing cutting-edge AI solutions for real-world problems.
           </p>
