@@ -5,28 +5,22 @@ export default function About() {
     <div className="max-w-4xl mt-28 mx-auto">
       <h1 className="text-4xl font-bold mb-8 animate-fadeIn">About Me</h1>
       <div className="flex flex-col md:flex-row items-center md:items-start gap-8">
-        <Image
+        {/* <Image
           src="/placeholder.svg?height=300&width=300"
           alt="Profile picture"
           width={300}
           height={300}
           className="grayscale"
-        />
+        /> */}
         <div className="space-y-4 stagger-animate">
           <p>
-            Hello! I'm an AI/ML Enthusiast passionate about pushing the boundaries of what's possible with artificial
-            intelligence and machine learning. With a strong background in data science and computer vision, I
-            specialize in developing cutting-edge AI solutions for real-world problems.
+            Hello! I'm Fuzail, deeply passionate about Artificial Intelligence and Machine Learning, exploring how data-driven models can solve real-world problems. Currently, I’m diving into machine learning algorithms, data preprocessing, and model optimization to build intelligent and efficient solutions.
           </p>
           <p>
-            My journey in the world of AI/ML began during my graduate studies in Computer Science. Since then, I've
-            worked on various projects ranging from natural language processing to predictive analytics and computer
-            vision applications.
+          My journey into AI/ML began in my final year of my Bachelor's in Computer Applications. Since then, I've worked on projects focused on predictive analytics and computer vision, continuously exploring and improving my skills in machine learning.
           </p>
           <p>
-            When I'm not coding or training models, you can find me exploring the latest research papers, contributing
-            to open-source projects, or mentoring aspiring data scientists. I believe in the power of AI to transform
-            industries and improve lives, and I'm always excited to take on new challenges in this ever-evolving field.
+          When I'm not coding or training models, I spend my time reading articles about AI/ML and technology, exploring biographies of successful business leaders, learning about history and historical figures, and sharing my thoughts on Twitter. I believe in the power of AI to transform industries and shape the future, and I'm always eager to learn and engage with new ideas in this ever-evolving field.
           </p>
         </div>
       </div>
