@@ -6,8 +6,8 @@ import Idea from "../components/Idea"
 
 const projects = [
   {
-    title: "AI-Powered Image Recognition",
-    description: "Developed a deep learning model for real-time image recognition using TensorFlow and Keras.",
+    title: "Stock Price Prediction",
+    description: "A Stock Price Predictor uses Machine Learning to forecast future stock prices based on historical data and market trends.",
     link: "#",
   },
   {
