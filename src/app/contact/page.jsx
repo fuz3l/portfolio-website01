@@ -56,7 +56,7 @@ export default function Contact() {
 
       <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
         <div>
-          <label htmlFor="name" className="block mb-2 text-gray-300">
+          <label htmlFor="name" className="block stagger-animate mb-2 text-gray-300">
             Name
           </label>
           <input
@@ -64,12 +64,12 @@ export default function Contact() {
             name="name" // Added name attribute
             type="text"
             placeholder="Your Name"
-            className="w-full p-2 bg-black border border-gray-500 focus:border-white outline-none transition-colors rounded-md"
+            className="w-full stagger-animate p-2 bg-black border border-gray-500 focus:border-white outline-none transition-colors rounded-md"
             required
           />
         </div>
         <div>
-          <label htmlFor="email" className="block mb-2 text-gray-300">
+          <label htmlFor="email" className="stagger-animate block mb-2 text-gray-300">
             Email
           </label>
           <input
@@ -77,19 +77,19 @@ export default function Contact() {
             name="email" // Added name attribute
             type="email"
             placeholder="your@email.com"
-            className="w-full p-2 bg-black border border-gray-500 focus:border-white outline-none transition-colors rounded-md"
+            className=" stagger-animate w-full p-2 bg-black border border-gray-500 focus:border-white outline-none transition-colors rounded-md"
             required
           />
         </div>
         <div>
-          <label htmlFor="message" className="block mb-2 text-gray-300">
+          <label htmlFor="message" className="stagger-animate block mb-2 text-gray-300">
             Message
           </label>
           <textarea
             id="message"
             name="message" // Added name attribute
             placeholder="Your message here..."
-            className="w-full p-2 bg-black border border-gray-500 focus:border-white outline-none transition-colors rounded-md"
+            className="stagger-animate w-full p-2 bg-black border border-gray-500 focus:border-white outline-none transition-colors rounded-md"
             rows={5}
             required
           ></textarea>
@@ -97,7 +97,7 @@ export default function Contact() {
         <button
           ref={submitRef}
           type="submit"
-          className="w-full bg-white text-black font-bold py-2 px-4 rounded-md transition-transform hover:scale-105"
+          className="w-full stagger-animate bg-white text-black font-bold py-2 px-4 rounded-md transition-transform hover:scale-105"
           disabled={isSubmitting}
         >
           {isSubmitting ? 'Sending...' : 'Send Message'}

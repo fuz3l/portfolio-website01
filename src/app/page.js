@@ -37,16 +37,16 @@ export default function Home() {
     <>
     <div className="flex flex-col items-center justify-center min-h-screen bg-black text-white px-6">
       {/* Heading */}
-      <h1 className="text-4xl font-semibold text-center mb-4">Hello, I am Fuzail</h1>
+      <h1 className="text-4xl animate-fadeIn font-semibold text-center mb-4">Hello, I am Fuzail</h1>
 
       {/* Paragraph */}
-      <p className="text-xl text-center max-w-2xl text-gray-300 leading-relaxed">
+      <p className="text-xl text-center stagger-animate max-w-2xl text-gray-300 leading-relaxed">
        A Machine Learning Enthusiast     </p>
 
       {/* CTA Button */}
       <Link
         href="/projects"
-        className="mt-6 bg-white rounded-md text-black px-6 py-3 font-bold inline-flex items-center shadow-md hover:bg-gray-200 transition duration-300"
+        className="mt-6 stagger-animate bg-white rounded-md text-black px-6 py-3 font-bold inline-flex items-center shadow-md hover:bg-gray-200 transition duration-300"
       >
         View My Projects
         <ArrowRight className="ml-2" />
@@ -54,7 +54,7 @@ export default function Home() {
     </div>
 
     <div>
-      <div className="mt-3 p-2">
+      <div className="mt-3 stagger-animate p-2">
         <Skills />
 <h1 className="font-semibold text-white text-left text-2xl">Eductation</h1>
 <div className="rounded-md bg-white border-white mt-3 border-2 p-3">
@@ -71,7 +71,7 @@ export default function Home() {
     </div>
     <div className="mt-3">
      <p className="text-sm text-black mb-2 font-semibold">Studied subjects like:</p>
-     <div ref={skillsRef} className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 justify-center">
+     <div ref={skillsRef} className="stagger-animate grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 justify-center">
   {skills.map((skill, index) => (
     <div 
       key={index} 
