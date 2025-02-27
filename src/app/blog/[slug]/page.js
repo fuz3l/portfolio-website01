@@ -1,6 +1,13 @@
 import { notFound } from "next/navigation"
 
 const blogPosts = {
+  
+  "Gen AI in 2025": {
+    title: "Gen AI in 2025",
+    content:
+      "Artificial Intelligence is poised to revolutionize the healthcare industry in numerous ways. From improving diagnostic accuracy to personalizing treatment plans, AI has the potential to enhance patient care significantly. Machine learning algorithms can analyze vast amounts of medical data, including patient records, research papers, and clinical trials, to identify patterns and insights that might escape human observation. This can lead to earlier disease detection, more accurate prognoses, and more effective treatments. Additionally, AI-powered robots and virtual assistants can help streamline administrative tasks, allowing healthcare professionals to focus more on patient care. As we move forward, the integration of AI in healthcare will likely lead to more efficient, accessible, and personalized medical services, ultimately improving health outcomes for patients worldwide.",
+    date: "2025-02-24",
+  },
   "future-of-ai-in-healthcare": {
     title: "The Future of AI in Healthcare",
     content:

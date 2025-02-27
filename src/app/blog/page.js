@@ -86,6 +86,7 @@ export default function Blog() {
 
   if (!hydrated) return null; // Avoids hydration mismatch
 
+  
   return (
     <div className="px-4 md:px-8 lg:px-16">
       <h1 className="text-4xl font-bold mt-28 mb-8 animate-fadeIn">Blog</h1>

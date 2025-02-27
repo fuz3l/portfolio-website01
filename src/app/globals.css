@@ -100,7 +100,10 @@
     border-color: rgba(255, 255, 255, 0.5);
   }
 }
-
+.ctm-bg{
+  background: rgb(0,0,0);
+  background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
+}
 .animate-fadeIn {
   animation: fadeIn 0.5s ease-out;
 }

@@ -4,10 +4,10 @@ import { FaHome, FaUser, FaBriefcase, FaBlog, FaPhone } from "react-icons/fa";
 
 export default function Header() {
   return (
-    <header className="bg-black text-white border-b-[1px] border-white fixed md:top-0   left-0 w-full shadow-md z-50">
-      <div className="container mx-auto px-6 py-4 flex justify-between items-center">
+    <header className="ctm-bg text-white   fixed md:top-0   left-0 w-full  z-50">
+      <div className="container mx-auto px-6 py-4 flex justify-center md:justify-between items-center">
         {/* Logo */}
-        <h1 className="text-xl  font-bold">Fuzail Mansuri</h1>
+        <h1 className="text-xl text-center md:text-left font-bold">Fuzail Mansuri</h1>
 
         {/* Desktop Navigation */}
         <nav className="hidden  md:flex space-x-6">
