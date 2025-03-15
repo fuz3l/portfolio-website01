@@ -1,5 +1,6 @@
 "use client";
 import { FaLocationDot,FaBookOpen, FaGraduationCap  } from "react-icons/fa6";
+import { FaArrowCircleDown } from "react-icons/fa";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { useRef } from "react"
@@ -61,7 +62,14 @@ export default function Home() {
       </Link>
    
       </div>
+      <div className="flex mt-6 items-center w-fit gap-2">
+  <p className="text-lg font-medium">Scroll down</p>
+  <FaArrowCircleDown className="text-xl" />
+</div>
+
     </div>
+
+
 
     <div>
       <div className="mt-3 stagger-animate p-2">

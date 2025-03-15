@@ -6,6 +6,12 @@ import Idea from "../components/Idea"
 
 const projects = [
   {
+    title: "🚀 AI Resume Screening & Candidate Ranking System",
+    description: "AI-powered resume screening and candidate ranking system using Streamlit.AI-powered resume screening and candidate ranking system using Streamlit and NLP.",
+    link: "https://huggingface.co/spaces/fuzelx/AI-Powered-Resume-Screening-Candidate-Ranking-System",
+    github:"https://github.com/fuz3l/AI-Powered-Resume-Screening-Candidate-Ranking-System"
+  },
+  {
     title: "K-Means-Clustering-Algorithm",
     description: "K-Means-Clustering-Algorithm For Mall Customers Data",
     link: "https://github.com/fuz3l/K-Means-Clustering-Algorithm",
@@ -38,11 +44,11 @@ export default function Projects() {
             <p className="text-gray-300 mb-4">{project.description}</p>
             <div className=" flex space-x-3">
 
-<Link href={project.github}><FaGithub className="text-2xl hover:text-gray-400"/></Link>
+<Link className="flex hover:bg-gray-400 bg-white py-1 px-2 rounded-sm text-black font-semibold " href={project.github}><FaGithub className="text-2xl hover:text-gray-400"/><span className="ml-1">Source Code</span></Link>
             
 
-            <Link href={project.github} className="text-white underline elegant-hover">
-              Learn more
+            <Link href={project.link} className="text-black no-underline py-1 px-2 rounded-sm bg-white font-semibold  hover:bg-gray-400">
+            🔥 Live Preview
             </Link>
             </div>
           </div>
