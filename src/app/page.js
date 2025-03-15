@@ -42,7 +42,7 @@ export default function Home() {
 
       {/* Paragraph */}
       <p className="text-xl text-center stagger-animate max-w-2xl text-gray-300 leading-relaxed">
-       A Machine Learning Enthusiast     </p>
+       AI/ML Enthusiast     </p>
 
 <div className="flex space-x-2">
       {/* CTA Button */}
