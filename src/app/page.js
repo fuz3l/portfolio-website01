@@ -46,7 +46,7 @@ export default function Home() {
 <div className="flex space-x-2">
       {/* CTA Button */}
       <Link
-        href="https://drive.google.com/file/d/1MKx_jy0V4mL7NGDCeAjl97wGTPsUVo7p/view?usp=drive_link"
+        href="https://drive.google.com/file/d/1_BHPdbgGhW1KY2Hv-hbNe6WndfChGbZQ/view?usp=drive_link"
         className="mt-6 stagger-animate bg-white rounded-md text-black px-6 py-3 font-bold inline-flex items-center shadow-md hover:bg-gray-200 transition duration-300"
       >
         Resume
@@ -56,7 +56,7 @@ export default function Home() {
         href="/projects"
         className="mt-6 stagger-animate bg-white rounded-md text-black px-6 py-3 font-bold inline-flex items-center shadow-md hover:bg-gray-200 transition duration-300"
       >
-        View My Projects
+      Projects
         <ArrowRight className="ml-2" />
       </Link>
    
