@@ -1,6 +1,7 @@
 import React from 'react'
-import { FaPython,  FaJava, FaPhp, FaSwift, FaReact, FaNode } from "react-icons/fa6";
+import { FaPython,  FaJava, FaPhp, FaSwift, FaNode } from "react-icons/fa6";
 import { RiJavascriptFill } from "react-icons/ri";
+import { SiTensorflow, SiHuggingface  } from "react-icons/si";
 import { SiNumpy, SiPandas, SiScikitlearn, SiNextdotjs, SiExpress } from "react-icons/si";
 
 function Skills() {
@@ -23,7 +24,9 @@ function Skills() {
 <SiNumpy className='text-black text-4xl'/>
 <SiPandas className='text-black text-4xl ml-3'/>
 <SiScikitlearn className='text-black text-4xl ml-3' />
-<FaReact className='text-black text-4xl ml-3' />
+<SiTensorflow className='text-black text-4xl ml-3'/>
+<SiHuggingface className='text-black text-4xl ml-3'/>
+
 <SiNextdotjs className='text-black text-4xl ml-3' />
 <SiExpress className='text-black text-4xl ml-3' />
 <FaNode className='text-black text-4xl ml-3'/>
