@@ -1,6 +1,8 @@
 "use client";
 import { FaLocationDot,FaBookOpen, FaGraduationCap  } from "react-icons/fa6";
 import { FaArrowCircleDown } from "react-icons/fa";
+import { FaDownload } from "react-icons/fa6";
+
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { useRef } from "react"
@@ -51,7 +53,7 @@ export default function Home() {
         className="mt-6 stagger-animate bg-white rounded-md text-black px-6 py-3 font-bold inline-flex items-center shadow-md hover:bg-gray-200 transition duration-300"
       >
         Resume
-       
+       <FaDownload className="ml-2" />
       </Link>
       <Link
         href="/projects"

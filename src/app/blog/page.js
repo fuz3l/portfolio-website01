@@ -1,113 +1,59 @@
-// "use client"
 
-// import Link from "next/link"
-// import { useRef } from "react"
 
-// const blogPosts = [
-//   {
-//     title: "The Future of AI in Healthcare",
-//     description: "Exploring how artificial intelligence is revolutionizing the healthcare industry...",
-//     date: "2023-06-01",
-//     slug: "future-of-ai-in-healthcare",
-//   },
-//   {
-//     title: "Understanding Deep Learning: A Beginner's Guide",
-//     description: "A comprehensive introduction to deep learning concepts and applications...",
-//     date: "2023-05-15",
-//     slug: "understanding-deep-learning",
-//   },
-//   {
-//     title: "Ethics in AI: Navigating the Challenges",
-//     description: "Discussing the ethical considerations and challenges in AI development...",
-//     date: "2023-04-28",
-//     slug: "ethics-in-ai",
-//   },
-// ]
-
-// export default function Blog() {
-//   const blogRef = useRef(null)
-
-//   return (
-//     <div>
-//       <h1 className="text-4xl epi mt-28 font-bold mb-8 animate-fadeIn">Blog</h1>
-//       <div ref={blogRef} className="space-y-8 stagger-animate">
-//         {blogPosts.map((post, index) => (
-//           <div key={index} className="border-b border-white/10 pb-8">
-//             <h2 className="text-2xl font-bold mb-2">
-//               <Link href={`/blog/${post.slug}`} className="elegant-hover">
-//                 {post.title}
-//               </Link>
-//             </h2>
-//             <p className="text-gray-400 mb-2">{post.date}</p>
-//             <p className="text-gray-300">{post.description}</p>
-//             <Link href={`/blog/${post.slug}`} className="text-white underline mt-2 inline-block elegant-hover">
-//               Read more
-//             </Link>
-//           </div>
-//         ))}
-//       </div>
-//     </div>
-//   )
-// }
-
-"use client";
-
+import fs from "fs";
+import path from "path";
+import matter from "gray-matter";
+import { MdDateRange } from "react-icons/md";
 import Link from "next/link";
-import { useEffect, useState, useRef } from "react";
 
-const blogPosts = [
-  {
-    title: "The Future of AI in Healthcare",
-    description: "Exploring how artificial intelligence is revolutionizing the healthcare industry...",
-    date: "2023-06-01",
-    slug: "future-of-ai-in-healthcare",
-  },
-  {
-    title: "Understanding Deep Learning: A Beginner's Guide",
-    description: "A comprehensive introduction to deep learning concepts and applications...",
-    date: "2023-05-15",
-    slug: "understanding-deep-learning",
-  },
-  {
-    title: "Ethics in AI: Navigating the Challenges",
-    description: "Discussing the ethical considerations and challenges in AI development...",
-    date: "2023-04-28",
-    slug: "ethics-in-ai",
-  },
-];
-
-export default function Blog() {
-  const blogRef = useRef(null);
-  const [hydrated, setHydrated] = useState(false);
-
-  useEffect(() => {
-    setHydrated(true);
-  }, []);
-
-  if (!hydrated) return null; // Avoids hydration mismatch
-
+export default function BlogList() {
+  const postsDir = path.join(process.cwd(), "src", "app", "posts");
+  const files = fs.readdirSync(postsDir);
+  const blogIntro = {
+    "Reality-of-Linkedin-in-2025": { 
+      title: "Reality-of-Linkedin-in-2025",
+      excerpt: "LinkedIn is a social media platform for business professionals, entrepreneurs, job recruiters, and job seekers...",
+    },
+    "Deep-learning-more-than-just-a-buzzword": {
+      title: "Deep-learning-more-than-just-a-buzzword",
+      excerpt: "In the world of tech, few terms have stirred up as much excitement—and confusion—as Deep Learning. Its everywhere...",
+    },
+  };
   
+  const posts = files
+    .filter(file => file.endsWith(".md"))
+    .map(file => {
+      const slug = file.replace(".md", "");
+      const content = fs.readFileSync(path.join(postsDir, file), "utf-8");
+      const { data } = matter(content);
+      return {
+        slug,
+        title: data.title || slug.replace(/-/g, " "),
+        date: data.date || "No date",
+        excerpt: blogIntro?.[slug]?.excerpt || "",
+      };
+    })
+    .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
+
   return (
-    <div className="px-4 md:px-8 lg:px-16">
-      <h1 className="text-4xl font-bold mt-28 mb-8 animate-fadeIn">Blog</h1>
-      <div ref={blogRef} className="space-y-8">
-        {blogPosts.map((post, index) => (
-          <div key={index} className="border-b border-white/10 pb-8">
-            <h2 className="text-2xl font-bold mb-2">
-              <Link href={`/blog/${post.slug}`} className="hover:text-gray-300 transition-colors">
+    <div className="px-4 md:px-8 lg:px-16 mt-28">
+      <h1 className="text-4xl font-bold mb-12">Blogs</h1>
+
+      {posts.map(post => (
+        <div key={post.slug} className="mb-12 border-b border-white/10 pb-8">
+          <h2 className="text-2xl font-semibold"> <Link href={`/blog/${post.slug}`} className="hover:text-gray-300 transition-colors">
                 {post.title}
-              </Link>
-            </h2>
-            <p className="text-gray-400">{post.date}</p>
-            <p className="text-gray-300">{post.description}</p>
-            <Link href={`/blog/${post.slug}`} className="text-white underline mt-2 inline-block hover:text-gray-300 transition-colors">
-              Read more
-            </Link>
-          </div>
-        ))}
-      </div>
+              </Link></h2>
+          <p className="text-gray-400 flex items-center text-sm mt-1"><MdDateRange className="mr-1"/> {post.date}</p>
+          <p className="text-gray-300 mt-2">{post.excerpt}</p>
+          <Link
+            href={`/blog/${post.slug}`}
+            className="text-white mt-2 inline-block underline"
+          >
+            Read more
+          </Link>
+        </div>
+      ))}
     </div>
   );
 }
-
-
