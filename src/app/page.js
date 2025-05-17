@@ -1,113 +1,159 @@
 "use client";
-import { FaLocationDot,FaBookOpen, FaGraduationCap  } from "react-icons/fa6";
-import { FaArrowCircleDown } from "react-icons/fa";
-import { FaDownload } from "react-icons/fa6";
-
+import { motion } from "framer-motion";
+import { 
+  AcademicCapIcon, 
+  BookOpenIcon, 
+  MapPinIcon,
+  ArrowDownIcon,
+  DocumentArrowDownIcon,
+  FolderIcon
+} from "@heroicons/react/24/outline";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
-import { useRef } from "react"
 import Skills from "./components/Skills";
 
-const  skills = [
-  {
-    name: "Machine Learning"
-  },
-  {
-    name: "Internet of Things"
-  },
-  {
-    name: "DBMS"
-  },
-  {
-    name: "RDBMS"
-  },
-  {
-    name: "C/C++"
-  },
-  {
-    name: "Web Dev."
-  },
-  {
-    name: "Data Structures"
-  }
-]
+const skills = [
+  { name: "Machine Learning", icon: "🤖" },
+  { name: "Internet of Things", icon: "🌐" },
+  { name: "DBMS", icon: "🗄️" },
+  { name: "RDBMS", icon: "📊" },
+  { name: "C/C++", icon: "⚡" },
+  { name: "Web Dev.", icon: "🌍" },
+  { name: "Data Structures", icon: "📚" }
+];
+
+const fadeInUp = {
+  initial: { opacity: 0, y: 20 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.5 }
+};
 
 export default function Home() {
-  const skillsRef = useRef(null)
- 
-
   return (
-    <>
-    <div className="flex flex-col items-center justify-center min-h-screen bg-black text-white px-6">
-      {/* Heading */}
-      <h1 className="text-4xl animate-fadeIn font-semibold text-center mb-4">Hello, I am Fuzail</h1>
+    <div className="min-h-screen bg-background">
+      {/* Hero Section */}
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0 gradient-bg opacity-20" />
+        <div className="container mx-auto px-6 py-20 text-center relative z-10">
+          <motion.h1 
+            className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            Hello, I am Fuzail
+          </motion.h1>
+          
+          <motion.p 
+            className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
+            AI/ML Enthusiast passionate about creating intelligent solutions
+          </motion.p>
 
-      {/* Paragraph */}
-      <p className="text-xl text-center stagger-animate max-w-2xl text-gray-300 leading-relaxed">
-       AI/ML Enthusiast     </p>
+          <motion.div 
+            className="flex flex-wrap justify-center gap-4"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+          >
+            <Link
+              href="https://drive.google.com/file/d/1_BHPdbgGhW1KY2Hv-hbNe6WndfChGbZQ/view?usp=drive_link"
+              className="group flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-all duration-200 hover-lift"
+            >
+              <DocumentArrowDownIcon className="w-5 h-5" />
+              <span>Resume</span>
+            </Link>
+            
+            <Link
+              href="/projects"
+              className="group flex items-center gap-2 px-6 py-3 bg-secondary text-secondary-foreground rounded-lg hover:bg-secondary/90 transition-all duration-200 hover-lift"
+            >
+              <FolderIcon className="w-5 h-5" />
+              <span>Projects</span>
+            </Link>
+          </motion.div>
 
-<div className="flex space-x-2">
-      {/* CTA Button */}
-      <Link
-        href="https://drive.google.com/file/d/1_BHPdbgGhW1KY2Hv-hbNe6WndfChGbZQ/view?usp=drive_link"
-        className="mt-6 stagger-animate bg-white rounded-md text-black px-6 py-3 font-bold inline-flex items-center shadow-md hover:bg-gray-200 transition duration-300"
-      >
-        Resume
-       <FaDownload className="ml-2" />
-      </Link>
-      <Link
-        href="/projects"
-        className="mt-6 stagger-animate bg-white rounded-md text-black px-6 py-3 font-bold inline-flex items-center shadow-md hover:bg-gray-200 transition duration-300"
-      >
-      Projects
-        <ArrowRight className="ml-2" />
-      </Link>
-   
-      </div>
-      <div className="flex mt-6 items-center w-fit gap-2">
-  <p className="text-lg font-medium">Scroll down</p>
-  <FaArrowCircleDown className="text-xl" />
-</div>
-
-    </div>
-
-
-
-    <div>
-      <div className="mt-3 stagger-animate p-2">
-        <Skills />
-<h1 className="font-semibold text-white text-left text-2xl">Eductation</h1>
-<div className="rounded-md bg-white border-white mt-3 border-2 p-3">
-  <div className="flex justify-center items-start flex-col">
-    <div className="flex">
-    <FaGraduationCap className="text-xl text-black"/>
-    <h3 className="font-semibold text-left ml-[3px] text-black text-xl">Silver Oak University</h3>
-    </div>
-    <div className="flex">
-    <FaBookOpen className="text-sm text-black" /><p className="text-sm  ml-[3px] font-normal text-black">Bachelor Of Computer Applications</p>
-    </div>
-    <div className="flex">
-    <FaLocationDot className="text-sm text-black" /><span className="text-sm ml-[5px] font-semibold text-black">Ahmedabad</span>  <p className="text-sm  ml-[3px] font-normal text-black">| July-2022 - Present</p>
-    </div>
-    <div className="mt-3">
-     <p className="text-sm text-black mb-2 font-semibold">Studied subjects like:</p>
-     <div ref={skillsRef} className="stagger-animate grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 justify-center">
-  {skills.map((skill, index) => (
-    <div 
-      key={index} 
-      className="bg-black text-white text-sm font-semibold px-4 py-2 text-center rounded-full shadow-md hover:bg-stone-900 transition"
-    >
-      {skill.name}
-    </div>
-  ))}
-</div>
-
+          <motion.div 
+            className="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex items-center gap-2 text-muted-foreground"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.6 }}
+          >
+            <span>Scroll down</span>
+            <ArrowDownIcon className="w-5 h-5 animate-bounce" />
+          </motion.div>
         </div>
+      </section>
 
-  </div>
-</div>
-      </div>
+      {/* Skills Section */}
+      <section className="py-20 bg-secondary/20">
+        <div className="container mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
+            <Skills />
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Education Section */}
+      <section className="py-20">
+        <div className="container mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="glass-effect rounded-2xl p-8"
+          >
+            <h2 className="text-3xl font-bold mb-8 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+              Education
+            </h2>
+            
+            <div className="space-y-6">
+              <div className="flex items-start gap-4">
+                <div className="p-3 bg-primary/10 rounded-lg">
+                  <AcademicCapIcon className="w-6 h-6 text-primary" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-semibold">Silver Oak University</h3>
+                  <p className="text-muted-foreground">Bachelor Of Computer Applications</p>
+                  <div className="flex items-center gap-2 mt-2 text-sm text-muted-foreground">
+                    <MapPinIcon className="w-4 h-4" />
+                    <span>Ahmedabad</span>
+                    <span>•</span>
+                    <span>July 2022 - Present</span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="mt-8">
+                <h4 className="text-lg font-semibold mb-4">Key Subjects</h4>
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+                  {skills.map((skill, index) => (
+                    <motion.div
+                      key={index}
+                      initial={{ opacity: 0, scale: 0.9 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.3, delay: index * 0.1 }}
+                      className="flex items-center gap-2 p-3 bg-secondary/50 rounded-lg hover:bg-secondary/70 transition-colors duration-200"
+                    >
+                      <span className="text-xl">{skill.icon}</span>
+                      <span className="text-sm font-medium">{skill.name}</span>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
     </div>
-    </>
   );
 }
