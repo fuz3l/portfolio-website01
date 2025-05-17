@@ -38,7 +38,7 @@ export default function Header() {
   return (
     <>
       <header 
-        className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+        className={`fixed top-0 left-0 w-full z-[100] transition-all duration-300 ${
           scrolled ? "bg-background/95 backdrop-blur-md shadow-lg" : "bg-transparent"
         }`}
       >
@@ -52,7 +52,7 @@ export default function Header() {
                 transition={{ duration: 0.5 }}
                 className="text-xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent"
               >
-                Fuzail Mansuri
+                Hey I'm Fuzail
               </motion.div>
             </Link>
 
@@ -100,7 +100,7 @@ export default function Header() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.2 }}
-            className="md:hidden fixed top-16 left-0 w-full bg-background/95 backdrop-blur-md shadow-lg z-40"
+            className="md:hidden fixed top-16 left-0 w-full bg-background/95 backdrop-blur-md shadow-lg z-[90]"
           >
             <nav className="container mx-auto px-4 py-4">
               <div className="flex flex-col space-y-1">
@@ -129,7 +129,7 @@ export default function Header() {
       </AnimatePresence>
 
       {/* Mobile Bottom Navigation */}
-      <nav className="md:hidden fixed bottom-4 left-1/2 transform -translate-x-1/2 w-[90%] max-w-sm">
+      <nav className="md:hidden fixed bottom-4 left-1/2 transform -translate-x-1/2 w-[90%] max-w-sm z-[80]">
         <div className="glass-effect rounded-2xl p-2">
           <div className="flex justify-around items-center">
             {navigation.map((item) => {
