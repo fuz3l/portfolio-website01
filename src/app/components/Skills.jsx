@@ -8,31 +8,88 @@ import {
   GlobeAltIcon,
   CloudIcon,
   BeakerIcon,
-  CubeIcon
+  CubeIcon,
+  CircleStackIcon,
+  BoltIcon,
+  CommandLineIcon as TerminalIcon,
+  WrenchScrewdriverIcon
 } from "@heroicons/react/24/outline";
 
 const skills = [
   {
     category: "Languages",
     items: [
-      { name: "Python", icon: "🐍", color: "from-blue-500 to-blue-600" },
-      { name: "Java", icon: "☕", color: "from-orange-500 to-orange-600" },
-      { name: "JavaScript", icon: "📜", color: "from-yellow-500 to-yellow-600" },
-      { name: "PHP", icon: "🐘", color: "from-purple-500 to-purple-600" },
-      { name: "Swift", icon: "🍎", color: "from-red-500 to-red-600" }
+      { 
+        name: "Python", 
+        icon: CodeBracketIcon,
+        description: "Advanced Python programming with focus on ML/AI",
+        color: "from-blue-500 to-blue-600"
+      },
+      { 
+        name: "Java", 
+        icon: CommandLineIcon,
+        description: "Object-oriented programming and enterprise applications",
+        color: "from-orange-500 to-orange-600"
+      },
+      { 
+        name: "JavaScript", 
+        icon: GlobeAltIcon,
+        description: "Modern web development and interactive applications",
+        color: "from-yellow-500 to-yellow-600"
+      },
+      { 
+        name: "PHP", 
+        icon: ServerIcon,
+        description: "Backend development and web applications",
+        color: "from-purple-500 to-purple-600"
+      },
+      { 
+        name: "C/C++", 
+        icon: BoltIcon,
+        description: "System programming and performance-critical applications",
+        color: "from-red-500 to-red-600"
+      }
     ]
   },
   {
     category: "Frameworks & Libraries",
     items: [
-      { name: "NumPy", icon: "🔢", color: "from-green-500 to-green-600" },
-      { name: "Pandas", icon: "🐼", color: "from-blue-500 to-blue-600" },
-      { name: "Scikit-learn", icon: "🤖", color: "from-orange-500 to-orange-600" },
-      { name: "TensorFlow", icon: "🧠", color: "from-yellow-500 to-yellow-600" },
-      { name: "Hugging Face", icon: "🤗", color: "from-purple-500 to-purple-600" },
-      { name: "Next.js", icon: "⚡", color: "from-gray-500 to-gray-600" },
-      { name: "Express", icon: "🚂", color: "from-green-500 to-green-600" },
-      { name: "Node.js", icon: "🟢", color: "from-green-500 to-green-600" }
+      { 
+        name: "NumPy", 
+        icon: CircleStackIcon,
+        description: "Scientific computing and numerical operations",
+        color: "from-green-500 to-green-600"
+      },
+      { 
+        name: "Pandas", 
+        icon: CubeIcon,
+        description: "Data manipulation and analysis",
+        color: "from-blue-500 to-blue-600"
+      },
+      { 
+        name: "Scikit-learn", 
+        icon: BeakerIcon,
+        description: "Machine learning algorithms and tools",
+        color: "from-orange-500 to-orange-600"
+      },
+      { 
+        name: "TensorFlow", 
+        icon: CpuChipIcon,
+        description: "Deep learning and neural networks",
+        color: "from-yellow-500 to-yellow-600"
+      },
+      { 
+        name: "Next.js", 
+        icon: TerminalIcon,
+        description: "React framework for production",
+        color: "from-gray-500 to-gray-600"
+      },
+      { 
+        name: "Express", 
+        icon: ServerIcon,
+        description: "Node.js web application framework",
+        color: "from-green-500 to-green-600"
+      }
     ]
   }
 ];
@@ -80,9 +137,10 @@ export default function Skills() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: categoryIndex * 0.2 }}
-            className="mb-8 last:mb-0"
+            className="mb-12 last:mb-0"
           >
-            <h3 className="text-xl font-semibold mb-6 text-primary">
+            <h3 className="text-xl font-semibold mb-6 text-primary flex items-center gap-2">
+              <WrenchScrewdriverIcon className="w-6 h-6" />
               {category.category}
             </h3>
             
@@ -91,7 +149,7 @@ export default function Skills() {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
-              className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4"
+              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
             >
               {category.items.map((skill, index) => (
                 <motion.div
@@ -99,10 +157,15 @@ export default function Skills() {
                   variants={itemVariants}
                   className="group relative"
                 >
-                  <div className={`p-4 rounded-xl bg-gradient-to-br ${skill.color} text-white hover-lift transition-all duration-300`}>
-                    <div className="flex flex-col items-center text-center">
-                      <span className="text-2xl mb-2">{skill.icon}</span>
-                      <span className="text-sm font-medium">{skill.name}</span>
+                  <div className={`p-6 rounded-xl bg-gradient-to-br ${skill.color} text-white hover-lift transition-all duration-300 h-full`}>
+                    <div className="flex flex-col h-full">
+                      <div className="flex items-center gap-3 mb-3">
+                        <div className="p-2 bg-white/10 rounded-lg">
+                          <skill.icon className="w-6 h-6" />
+                        </div>
+                        <h4 className="text-lg font-semibold">{skill.name}</h4>
+                      </div>
+                      <p className="text-sm text-white/80">{skill.description}</p>
                     </div>
                   </div>
                 </motion.div>
