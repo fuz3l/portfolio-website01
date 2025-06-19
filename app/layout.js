@@ -7,8 +7,8 @@ import MobileNavigation from "@/components/mobile-navigation"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata = {
-  title: "Portfolio - Creative Developer",
-  description: "A beautiful portfolio showcasing creative work and projects",
+  title: "Fuzail Mansuri | AI & ML ",
+  description: "Fuzail Mansuri is an AI & ML enthusiast with a strong interest in developing intelligent, data-driven solutions. He is passionate about exploring machine learning models, experimenting with real-world applications, and staying updated with the latest advancements in artificial intelligence.",
 }
 
 export default function RootLayout({ children }) {
