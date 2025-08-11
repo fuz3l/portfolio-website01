@@ -1,4 +1,4 @@
-# Amaan's Portfolio - Next.js Version (JavaScript)
+# Fuzail's Portfolio - Next.js Version (JavaScript)
 
 This is a Next.js version of the original HTML portfolio website, featuring the same design and functionality with modern React components built in JavaScript.
 
