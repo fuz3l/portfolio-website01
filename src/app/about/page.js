@@ -17,7 +17,7 @@ export default function About() {
       <main className="flex-1 flex flex-col items-center justify-center px-6">
         <div className="max-w-4xl w-full">
           <h1 className="text-4xl md:text-5xl font-bold text-center mb-8">About Me</h1>
-          
+
           {/* Profile Image Section */}
           <div className="flex justify-center mb-8">
             <div className="relative">
@@ -31,23 +31,25 @@ export default function About() {
                   priority
                 />
               </div>
-             
+
             </div>
           </div>
-          
+
           <div className="space-y-6 text-lg leading-relaxed">
             <p>
-            Hello! I'm Fuzail, A software developer and AI/Ml enthusiast.
+              Hello! I'm Fuzail, A software developer.
             </p>
-            
+              <p>Currently im pursuing my masters degree in computer science & IT</p>
             <p>
-            My journey into tech began in 2021, when I was 17.       </p>
-            
+              My journey into tech began in 2021, when I was 17. i chose biology as my major in 11th grade but later i realized it wasnt my cup of tea, so i switched to CS in my bachelors degree. i wrote my first .html file in the code editor called 'Brackets'( back in 2021) which was owned by adobe.</p>
+           
+            <p> Apart from coding, i collect perfumes, capture aesthetic photos and read poetry(urdu, english obv.)</p>
+
             <p>
- Until now, I have built several projects using latest tech. You can find me on X(Twitter), where I usually do shitposting.
- If you have any project ideas or anything else to discuss just mail me!(you can find it on socials page)
-      </p>
-            
+              Until now, I have built several projects using latest tech.(check out my <a href="/projects" className="underline hover:text-blue-600 dark:hover:text-blue-400 transition-colors">projects</a> page for more..)
+              If you have any project ideas, business ideas or need any help, just mail me!(you can find it on <a href="/socials" className="underline hover:text-blue-600 dark:hover:text-blue-400 transition-colors">socials</a> page)
+            </p>
+
             <div className="mt-8">
               <h2 className="text-2xl font-bold mb-4">Skills</h2>
               <div className="grid grid-cols-2 md:grid-cols-3 gap-4">

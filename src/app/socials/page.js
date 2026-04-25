@@ -72,7 +72,7 @@ export default function Socials() {
                 </div>
                 <div>
                   <h3 className="text-xl font-bold">Twitter</h3>
-                  <p className="text-gray-600 dark:text-gray-400">@amaan_dev</p>
+                  <p className="text-gray-600 dark:text-gray-400">@fuzail_mansurii</p>
                 </div>
               </div>
               <p className="text-gray-600 dark:text-gray-400 mb-4">

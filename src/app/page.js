@@ -25,6 +25,12 @@ export default function Home() {
           <a href="/blogs" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-150">
             Blogs
           </a>
+          <a href="/photography" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-150">
+            Photography
+          </a>
+          <a href="/life-updates" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-150">
+            Life Updates
+          </a>
           <a href="/socials" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-150">
             Socials
           </a>
