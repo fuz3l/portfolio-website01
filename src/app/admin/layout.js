@@ -2,13 +2,14 @@
 
 import { AuthProvider, useAuth } from '@/lib/useAuth';
 import { useRouter, usePathname } from 'next/navigation';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
 
 function AdminContent({ children }) {
     const { user, loading, logout } = useAuth();
     const router = useRouter();
     const pathname = usePathname();
+    const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
     useEffect(() => {
         if (!loading && !user && pathname !== '/admin/login') {
@@ -31,9 +32,17 @@ function AdminContent({ children }) {
     }
 
     return (
-        <div className="min-h-screen flex bg-gray-900 text-white font-sans">
+        <div className="min-h-screen flex flex-col md:flex-row bg-gray-900 text-white font-sans">
+            {/* Mobile Menu Button */}
+            <button 
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                className="md:hidden p-4 bg-gray-800 text-white"
+            >
+                ☰ Menu
+            </button>
+
             {/* Sidebar Navigation */}
-            <nav className="w-64 border-r border-gray-800 p-6 flex flex-col gap-4">
+            <nav className={`${mobileMenuOpen ? 'block' : 'hidden'} md:block md:w-64 border-r border-gray-800 p-6 flex flex-col gap-4`}>
                 <h2 className="text-xl font-bold mb-8 text-gray-200">Admin Panel</h2>
                 <Link href="/admin" className="p-3 rounded-lg hover:bg-gray-800 transition-colors">Dashboard</Link>
                 <Link href="/admin/life-updates" className="p-3 rounded-lg hover:bg-gray-800 transition-colors">Life Updates</Link>
@@ -52,7 +61,7 @@ function AdminContent({ children }) {
             </nav>
 
             {/* Main Content */}
-            <main className="flex-1 p-8 overflow-y-auto">
+            <main className="flex-1 p-4 md:p-8 overflow-y-auto">
                 <div className="max-w-5xl mx-auto">
                     {children}
                 </div>
