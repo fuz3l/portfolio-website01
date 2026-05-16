@@ -22,8 +22,9 @@ export const AuthProvider = ({ children }) => {
         try {
             const session = await account.get();
             setUser(session);
+            console.log('✅ User session found:', session);
         } catch (error) {
-            console.error('Session check error:', error);
+            console.warn('⚠️ Session check failed (expected if not logged in):', error.message);
             setUser(null);
         } finally {
             setLoading(false);
@@ -33,23 +34,34 @@ export const AuthProvider = ({ children }) => {
     const login = async (email, password) => {
         setLoading(true);
         try {
-            // Delete any existing sessions first (helps with mobile cookie issues)
+            console.log('🔐 Attempting login for:', email);
+            
+            // Delete any existing sessions first
             try {
                 await account.deleteSession('current');
+                console.log('🗑️ Cleared old session');
             } catch (e) {
-                // Session might not exist, that's okay
+                console.log('ℹ️ No previous session to clear');
             }
 
-            // Create new session with mobile-friendly settings
+            // Create new session
+            console.log('📝 Creating new session...');
             await account.createEmailPasswordSession(email, password);
+            console.log('✅ Session created successfully');
             
             // Small delay to ensure session is established
             await new Promise(resolve => setTimeout(resolve, 500));
             
+            console.log('🔍 Fetching user info...');
             await checkUser();
+            console.log('✅ Login complete!');
         } catch (error) {
             setLoading(false);
-            console.error('Login error details:', error);
+            console.error('❌ Login error:', {
+                message: error.message,
+                code: error.code,
+                fullError: error
+            });
             throw error;
         }
     };
@@ -57,10 +69,12 @@ export const AuthProvider = ({ children }) => {
     const logout = async () => {
         setLoading(true);
         try {
+            console.log('🚪 Logging out...');
             await account.deleteSession('current');
             setUser(null);
+            console.log('✅ Logout successful');
         } catch (error) {
-            console.error('Logout error:', error);
+            console.error('❌ Logout error:', error);
         } finally {
             setLoading(false);
         }
