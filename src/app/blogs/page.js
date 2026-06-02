@@ -57,7 +57,7 @@ export default function Blogs() {
                     </span>
                   </div>
                   <h2 className="text-2xl font-bold mb-3">
-                    <a href="#" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                    <a href={`/blogs/${blog.$id}`} className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
                       {blog.title}
                     </a>
                   </h2>
@@ -66,7 +66,7 @@ export default function Blogs() {
                   </p>
                   <div className="flex items-center justify-between">
                     <span className="text-sm text-gray-500 dark:text-gray-400">Read</span>
-                    <a href="#" className="text-blue-600 dark:text-blue-400 hover:underline text-sm">Read More →</a>
+                    <a href={`/blogs/${blog.$id}`} className="text-blue-600 dark:text-blue-400 hover:underline text-sm">Read More →</a>
                   </div>
                 </article>
               ))
