@@ -1,6 +1,5 @@
 'use client';
 
-import { ThemeToggle } from './ThemeToggle';
 import { MusicPlayer } from './MusicPlayer';
 import { ChatButton } from './ChatButton';
 import { Timer } from './Timer';
@@ -10,7 +9,6 @@ export default function Footer({ authorName = "Fuzail" }) {
     <footer className="w-full flex justify-between items-end px-6 pb-4 text-sm">
       <div className="flex flex-col gap-2">
         <div className="flex items-center gap-4 mb-2">
-          <ThemeToggle />
           <MusicPlayer />
           <ChatButton />
         </div>

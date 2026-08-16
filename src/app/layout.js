@@ -26,10 +26,15 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" className="light">
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `document.documentElement.classList.remove('dark'); localStorage.removeItem('theme');`,
+          }}
+        />
       </head>
       <body className={`${dmSans.variable} ${jetbrainsMono.variable} ${inriaSerif.variable} font-sans`}>{children}</body>
     </html>
