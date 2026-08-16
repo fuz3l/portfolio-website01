@@ -1,16 +1,13 @@
 'use client';
 
 import Footer from '../../components/Footer';
+import BackToHome from '../../components/BackToHome';
 
 export default function Socials() {
   return (
-    <div className="bg-white dark:bg-gray-900 text-black dark:text-white min-h-screen flex flex-col justify-between transition-colors duration-200">
+    <div className="bg-white/40 dark:bg-gray-900/40 text-black dark:text-white min-h-screen flex flex-col justify-between transition-colors duration-200">
       {/* Top link */}
-      <div className="w-full text-center pt-6 text-xs text-gray-500 dark:text-gray-400">
-        <a href="/" className="underline hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-          ← Back to Home
-        </a>
-      </div>
+      <BackToHome />
 
       {/* Center content */}
       <main className="flex-1 flex flex-col items-center justify-center px-6">
@@ -19,7 +16,7 @@ export default function Socials() {
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* GitHub */}
-            <div className="bg-gray-100 dark:bg-gray-800 rounded-lg p-6 hover:shadow-lg transition-shadow">
+            <div className="bg-white border border-black/10 p-3 dark:bg-gray-800 rounded-lg hover:shadow-lg transition-shadow">
               <div className="flex items-center gap-4 mb-4">
                 <div className="w-12 h-12 bg-gray-900 dark:bg-white rounded-lg flex items-center justify-center">
                   <svg className="w-6 h-6 text-white dark:text-gray-900" fill="currentColor" viewBox="0 0 24 24">
@@ -41,7 +38,7 @@ export default function Socials() {
             </div>
 
             {/* LinkedIn */}
-            <div className="bg-gray-100 dark:bg-gray-800 rounded-lg p-6 hover:shadow-lg transition-shadow">
+            <div className="bg-white border border-black/10 p-3 dark:bg-gray-800 rounded-lg hover:shadow-lg transition-shadow">
               <div className="flex items-center gap-4 mb-4">
                 <div className="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center">
                   <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
@@ -63,7 +60,7 @@ export default function Socials() {
             </div>
 
             {/* Twitter */}
-            <div className="bg-gray-100 dark:bg-gray-800 rounded-lg p-6 hover:shadow-lg transition-shadow">
+            <div className="bg-white border border-black/10 p-3 dark:bg-gray-800 rounded-lg hover:shadow-lg transition-shadow">
               <div className="flex items-center gap-4 mb-4">
                 <div className="w-12 h-12 bg-blue-400 rounded-lg flex items-center justify-center">
                   <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
@@ -84,12 +81,8 @@ export default function Socials() {
               </a>
             </div>
 
-     
-
-            
-
             {/*  Mail */}
-            <div className="bg-gray-100 dark:bg-gray-800 rounded-lg p-6 hover:shadow-lg transition-shadow">
+            <div className="bg-white border border-black/10 p-3 dark:bg-gray-800 rounded-lg hover:shadow-lg transition-shadow">
               <div className="flex items-center gap-4 mb-4">
                 <div className="w-12 h-12 bg-blue-500 rounded-lg flex items-center justify-center">
                   <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">

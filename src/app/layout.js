@@ -1,5 +1,11 @@
-import { JetBrains_Mono, Inria_Serif } from "next/font/google";
+import { DM_Sans, JetBrains_Mono, Inria_Serif } from "next/font/google";
 import "./globals.css";
+
+const dmSans = DM_Sans({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-dm-sans",
+});
 
 const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
@@ -25,7 +31,7 @@ export default function RootLayout({ children }) {
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       </head>
-      <body className={`${jetbrainsMono.variable} ${inriaSerif.variable} font-mono`}>{children}</body>
+      <body className={`${dmSans.variable} ${jetbrainsMono.variable} ${inriaSerif.variable} font-sans`}>{children}</body>
     </html>
   );
 } 

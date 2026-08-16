@@ -1,17 +1,14 @@
 'use client';
 
 import Footer from '../../components/Footer';
+import BackToHome from '../../components/BackToHome';
 import Image from 'next/image';
 
 export default function About() {
   return (
-    <div className="bg-white dark:bg-gray-900 text-black dark:text-white min-h-screen flex flex-col justify-between transition-colors duration-200">
+    <div className="bg-white/40 dark:bg-gray-900/40 text-black dark:text-white min-h-screen flex flex-col justify-between transition-colors duration-200">
       {/* Top link */}
-      <div className="w-full text-center pt-6 text-xs text-gray-500 dark:text-gray-400">
-        <a href="/" className="underline hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-          ← Back to Home
-        </a>
-      </div>
+      <BackToHome />
 
       {/* Center content */}
       <main className="flex-1 flex flex-col items-center justify-center px-6">
@@ -21,63 +18,64 @@ export default function About() {
           {/* Profile Image Section */}
           <div className="flex justify-center mb-8">
             <div className="relative">
-              <div className="w-48 h-48 md:w-64 md:h-72  ">
+              <div className="w-48 h-48 md:w-64 md:h-72 overflow-hidden rounded-lg border border-black/10 dark:border-white/10 shadow-sm">
                 <Image
-                  src="/abt.jpeg"
+                  src="/my1.png"
                   alt="Fuzail"
                   width={400}
                   height={700}
-                  className="w-full h-full"
+                  className="w-full h-full object-cover"
                   priority
                 />
               </div>
-
             </div>
           </div>
 
-          <div className="space-y-6 text-lg leading-relaxed">
-            <p>
-              Hello! I'm Fuzail, A software developer.
-            </p>
+          <div className="bg-white border border-black/10 dark:bg-gray-800 p-6 md:p-8 rounded-lg mb-8 shadow-sm">
+            <div className="space-y-6 text-lg leading-relaxed">
+              <p>
+                Hello! I'm Fuzail, A software developer.
+              </p>
               <p>Currently im pursuing my masters degree in computer science & IT</p>
-            <p>
-              My journey into tech began in 2021, when I was 17. i chose biology as my major in 11th grade but later i realized it wasnt my cup of tea, so i switched to CS in my bachelors degree. i wrote my first .html file in the code editor called 'Brackets'( back in 2021) which was owned by adobe.</p>
-           
-            <p> Apart from coding, i collect perfumes, capture aesthetic photos and read poetry(urdu, english obv.)</p>
+              <p>
+                My journey into tech began in 2021, when I was 17. i chose biology as my major in 11th grade but later i realized it wasnt my cup of tea, so i switched to CS in my bachelors degree. i wrote my first .html file in the code editor called 'Brackets'( back in 2021) which was owned by adobe.
+              </p>
+             
+              <p> Apart from coding, i collect perfumes, capture aesthetic photos and read poetry(urdu, english obv.)</p>
 
-            <p>
-              Until now, I have built several projects using latest tech.(check out my <a href="/projects" className="underline hover:text-blue-600 dark:hover:text-blue-400 transition-colors">projects</a> page for more..)
-              If you have any project ideas, business ideas or need any help, just mail me!(you can find it on <a href="/socials" className="underline hover:text-blue-600 dark:hover:text-blue-400 transition-colors">socials</a> page)
-            </p>
+              <p>
+                Until now, I have built several projects using latest tech.(check out my <a href="/projects" className="underline hover-gradient-text">projects</a> page for more..)
+                If you have any project ideas, business ideas or need any help, just mail me!(you can find it on <a href="/socials" className="underline hover-gradient-text">socials</a> page)
+              </p>
+            </div>
+          </div>
 
-            <div className="mt-8">
-              <h2 className="text-2xl font-bold mb-4">Skills</h2>
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                <div className="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg">
-                  <h3 className="font-semibold mb-2">Frontend</h3>
-                  <p className="text-sm text-gray-600 dark:text-gray-400">React, Next.js, JavaScript, Tailwind CSS, Bootstrap</p>
-                </div>
-                <div className="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg">
-                  <h3 className="font-semibold mb-2">Backend</h3>
-                  <p className="text-sm text-gray-600 dark:text-gray-400">Node.js, Express, Python, Firebase</p>
-                </div>
-                <div className="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg">
-                  <h3 className="font-semibold mb-2">Database</h3>
-                  <p className="text-sm text-gray-600 dark:text-gray-400">MySQL, PostgreSQL, Firebase Firestore</p>
-                </div>
-                <div className="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg">
-                  <h3 className="font-semibold mb-2">Tools</h3>
-                  <p className="text-sm text-gray-600 dark:text-gray-400">Git, Github, Vercel, VSCode, Cursor
-                  </p>
-                </div>
-                <div className="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg">
-                  <h3 className="font-semibold mb-2">Design</h3>
-                  <p className="text-sm text-gray-600 dark:text-gray-400">Figma, Responsive Design</p>
-                </div>
-                <div className="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg">
-                  <h3 className="font-semibold mb-2">AI & ML</h3>
-                  <p className="text-sm text-gray-600 dark:text-gray-400">Scikit-learn, TensorFlow, Pandas, Numpy, Keras</p>
-                </div>
+          <div className="mb-8">
+            <h2 className="text-2xl font-bold mb-4">Skills</h2>
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+              <div className="bg-white border border-black/10 dark:bg-gray-800 p-4 rounded-lg">
+                <h3 className="font-semibold mb-2">Frontend</h3>
+                <p className="text-sm text-gray-600 dark:text-gray-400">React, Next.js, JavaScript, Tailwind CSS, Bootstrap</p>
+              </div>
+              <div className="bg-white border border-black/10 dark:bg-gray-800 p-4 rounded-lg">
+                <h3 className="font-semibold mb-2">Backend</h3>
+                <p className="text-sm text-gray-600 dark:text-gray-400">Node.js, Express, Python, Firebase</p>
+              </div>
+              <div className="bg-white border border-black/10 dark:bg-gray-800 p-4 rounded-lg">
+                <h3 className="font-semibold mb-2">Database</h3>
+                <p className="text-sm text-gray-600 dark:text-gray-400">MySQL, PostgreSQL, Firebase Firestore</p>
+              </div>
+              <div className="bg-white border border-black/10 dark:bg-gray-800 p-4 rounded-lg">
+                <h3 className="font-semibold mb-2">Tools</h3>
+                <p className="text-sm text-gray-600 dark:text-gray-400">Git, Github, Vercel, VSCode, Cursor</p>
+              </div>
+              <div className="bg-white border border-black/10 dark:bg-gray-800 p-4 rounded-lg">
+                <h3 className="font-semibold mb-2">Design</h3>
+                <p className="text-sm text-gray-600 dark:text-gray-400">Figma, Responsive Design</p>
+              </div>
+              <div className="bg-white border border-black/10 dark:bg-gray-800 p-4 rounded-lg">
+                <h3 className="font-semibold mb-2">AI & ML</h3>
+                <p className="text-sm text-gray-600 dark:text-gray-400">Scikit-learn, TensorFlow, Pandas, Numpy, Keras</p>
               </div>
             </div>
           </div>

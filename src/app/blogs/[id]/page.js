@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'next/navigation';
 import { databases, appwriteConfig } from '@/lib/appwrite';
 import Footer from '@/components/Footer';
+import Loader from '@/components/Loader';
 
 export default function BlogDetail() {
   const params = useParams();
@@ -47,13 +48,13 @@ export default function BlogDetail() {
   };
 
   return (
-    <div className="bg-white dark:bg-gray-900 text-black dark:text-white min-h-screen flex flex-col justify-between transition-colors duration-200">
+    <div className="bg-white/40 dark:bg-gray-900/40 text-black dark:text-white min-h-screen flex flex-col justify-between transition-colors duration-200">
       {/* Top navigation link */}
       <div className="w-full text-center pt-6 text-xs text-gray-500 dark:text-gray-400">
         <a 
           id="back-to-blogs-link" 
           href="/blogs" 
-          className="underline hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+          className="underline hover-gradient-text"
         >
           ← Back to Blogs
         </a>
@@ -63,9 +64,7 @@ export default function BlogDetail() {
       <main className="flex-1 flex flex-col items-center justify-start px-6 pt-12">
         <div className="max-w-3xl w-full">
           {loading ? (
-            <div className="text-center py-12 text-gray-500">
-              <p className="text-lg animate-pulse">Loading blog post...</p>
-            </div>
+            <Loader />
           ) : error ? (
             <div className="text-center py-12">
               <p className="text-red-500 dark:text-red-400 font-medium mb-4">{error}</p>
@@ -77,17 +76,17 @@ export default function BlogDetail() {
               </a>
             </div>
           ) : blog ? (
-            <article className="prose dark:prose-invert max-w-none">
-              <header className="mb-8 pb-4 border-b border-gray-200 dark:border-gray-800">
-                <span className="text-sm text-gray-500 dark:text-gray-400 block mb-2">
+            <article className="prose max-w-none bg-white text-gray-900 shadow-md p-8 md:p-12 mb-12">
+              <header className="mb-8 pb-4 border-b border-gray-200">
+                <span className="text-sm text-gray-500 block mb-2">
                   {new Date(blog.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
                 </span>
-                <h1 className="text-3xl md:text-5xl font-bold leading-tight mb-2">
+                <h1 className="text-3xl md:text-5xl font-bold leading-tight mb-2 text-gray-900">
                   {blog.title}
                 </h1>
               </header>
 
-              <div className="text-gray-700 dark:text-gray-300 text-base md:text-lg leading-relaxed whitespace-pre-wrap font-sans">
+              <div className="text-gray-800 text-base md:text-lg leading-relaxed whitespace-pre-wrap font-sans">
                 {blog.content}
               </div>
             </article>

@@ -1,16 +1,13 @@
 'use client';
 
 import Footer from '../../components/Footer';
+import BackToHome from '../../components/BackToHome';
 
 export default function Resume() {
   return (
-    <div className="bg-white dark:bg-gray-900 text-black dark:text-white min-h-screen flex flex-col justify-between transition-colors duration-200">
+    <div className="bg-white/40 dark:bg-gray-900/40 text-black dark:text-white min-h-screen flex flex-col justify-between transition-colors duration-200">
       {/* Top link */}
-      <div className="w-full text-center pt-6 text-xs text-gray-500 dark:text-gray-400">
-        <a href="/" className="underline hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-          ← Back to Home
-        </a>
-      </div>
+      <BackToHome />
 
       {/* Center content */}
       <main className="flex-1 flex flex-col items-center justify-center px-6">
@@ -19,7 +16,7 @@ export default function Resume() {
           
           <div className="space-y-8">
             {/* Contact Information */}
-            <section className="bg-gray-100 dark:bg-gray-800 rounded-lg p-6">
+            <section className="bg-white border border-black/10 p-3 dark:bg-gray-800 rounded-lg">
               <h2 className="text-2xl font-bold mb-4">Contact Information</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
@@ -39,7 +36,7 @@ export default function Resume() {
             </section>
 
             {/* Summary */}
-            <section className="bg-gray-100 dark:bg-gray-800 rounded-lg p-6">
+            <section className="bg-white border border-black/10 p-3 dark:bg-gray-800 rounded-lg">
               <h2 className="text-2xl font-bold mb-4">Professional Summary</h2>
               <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
                Software developer and AI/ML enthusiast, Passionate about building modern web/app and AI/ML solutions that solve real-world problems. Problem solver and quick learner. Resilient and adaptable.
@@ -101,7 +98,7 @@ export default function Resume() {
             </section> */}
 
             {/* Education */}
-            <section className="bg-gray-100 dark:bg-gray-800 rounded-lg p-6">
+            <section className="bg-white border border-black/10 p-3 dark:bg-gray-800 rounded-lg">
               <h2 className="text-2xl font-bold mb-4">Education</h2>
               
               <div className="space-y-4">
@@ -133,7 +130,7 @@ export default function Resume() {
             </section>
 
             {/* Skills */}
-            <section className="bg-gray-100 dark:bg-gray-800 rounded-lg p-6">
+            <section className="bg-white border border-black/10 p-3 dark:bg-gray-800 rounded-lg">
               <h2 className="text-2xl font-bold mb-4">Technical Skills</h2>
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -184,9 +181,13 @@ export default function Resume() {
 
             {/* Download Button */}
             <div className="text-center">
-              <button className="bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 text-white px-8 py-3 rounded-lg transition-colors">
+              <a 
+                href="/resume.pdf" 
+                download="Fuzail_Mansuri_Resume.pdf"
+                className="inline-block bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 text-white px-8 py-3 rounded-lg transition-colors font-medium shadow-sm hover:shadow"
+              >
                 Download PDF Resume
-              </button>
+              </a>
             </div>
           </div>
         </div>

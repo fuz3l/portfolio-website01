@@ -1,6 +1,8 @@
 'use client';
 
 import Footer from '../../components/Footer';
+import BackToHome from '../../components/BackToHome';
+import Loader from '../../components/Loader';
 import { useEffect, useState } from 'react';
 import { databases, appwriteConfig } from '@/lib/appwrite';
 import { Query } from 'appwrite';
@@ -30,13 +32,9 @@ export default function Blogs() {
   };
 
   return (
-    <div className="bg-white dark:bg-gray-900 text-black dark:text-white min-h-screen flex flex-col justify-between transition-colors duration-200">
+    <div className="bg-white/40 dark:bg-gray-900/40 text-black dark:text-white min-h-screen flex flex-col justify-between transition-colors duration-200">
       {/* Top link */}
-      <div className="w-full text-center pt-6 text-xs text-gray-500 dark:text-gray-400">
-        <a href="/" className="underline hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-          ← Back to Home
-        </a>
-      </div>
+      <BackToHome />
 
       {/* Center content */}
       <main className="flex-1 flex flex-col items-center justify-start px-6 pt-12">
@@ -45,28 +43,28 @@ export default function Blogs() {
           
           <div className="space-y-8">
             {loading ? (
-              <p className="text-center text-gray-500">Loading blogs...</p>
+              <Loader />
             ) : blogs.length === 0 ? (
               <p className="text-center text-gray-500">No blogs published yet.</p>
             ) : (
               blogs.map((blog) => (
-                <article key={blog.$id} className="bg-gray-100 dark:bg-gray-800 rounded-lg p-6 hover:shadow-lg transition-shadow">
+                <article key={blog.$id} className="bg-white text-gray-900 shadow-md p-6 hover:shadow-xl transition-shadow">
                   <div className="flex items-center gap-2 mb-3">
-                    <span className="text-sm text-gray-500 dark:text-gray-400">
+                    <span className="text-sm text-gray-500">
                       {new Date(blog.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
                     </span>
                   </div>
                   <h2 className="text-2xl font-bold mb-3">
-                    <a href={`/blogs/${blog.$id}`} className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                    <a href={`/blogs/${blog.$id}`} className="hover:text-blue-600 transition-colors">
                       {blog.title}
                     </a>
                   </h2>
-                  <p className="text-gray-600 dark:text-gray-400 mb-4 leading-relaxed whitespace-pre-wrap">
-                    {blog.content.length > 200 ? `${blog.content.substring(0, 200)}...` : blog.content}
+                  <p className="text-gray-700 mb-4 leading-relaxed whitespace-pre-wrap">
+                    {blog.content ? (blog.content.length > 200 ? `${blog.content.substring(0, 200)}...` : blog.content) : ''}
                   </p>
                   <div className="flex items-center justify-between">
-                    <span className="text-sm text-gray-500 dark:text-gray-400">Read</span>
-                    <a href={`/blogs/${blog.$id}`} className="text-blue-600 dark:text-blue-400 hover:underline text-sm">Read More →</a>
+                    <span className="text-sm text-gray-500">Read</span>
+                    <a href={`/blogs/${blog.$id}`} className="text-blue-600 hover:underline text-sm font-medium">Read More →</a>
                   </div>
                 </article>
               ))

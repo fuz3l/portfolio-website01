@@ -1,5 +1,7 @@
-"use client";
+'use client';
 
+import BackToHome from '@/components/BackToHome';
+import Loader from '@/components/Loader';
 import { useEffect, useState } from 'react';
 import { databases, appwriteConfig } from '@/lib/appwrite';
 import { Query } from 'appwrite';
@@ -34,45 +36,69 @@ export default function LifeUpdatesPage() {
     };
 
     if (loading) {
-        return <div className="min-h-screen bg-[#0E0E0E] text-white flex items-center justify-center font-serif text-xl" style={{ fontFamily: 'var(--font-inria-serif), serif' }}>Loading...</div>;
+        return (
+            <div className="min-h-screen bg-[#0E0E0E]/40 text-white flex flex-col justify-between">
+                <BackToHome />
+                <Loader />
+                <div></div>
+            </div>
+        );
     }
 
     return (
-        <div className="min-h-screen bg-[#0E0E0E] text-white">
-            <main className="max-w-6xl mx-auto py-24 px-6 md:px-12">
-                <h1 className="text-5xl md:text-7xl font-serif mb-16 tracking-wide" style={{ fontFamily: 'var(--font-inria-serif), serif' }}>
+        <div className="min-h-screen bg-white/40 dark:bg-gray-900/40 text-black dark:text-white flex flex-col justify-between transition-colors duration-200">
+            <BackToHome />
+            <main className="flex-1 max-w-6xl w-full mx-auto py-12 px-6 md:px-12">
+                <h1 className="text-4xl md:text-5xl font-bold text-center mb-12 tracking-tight">
                     Life Updates
                 </h1>
 
-                <div className="space-y-32">
-                    {updates.length === 0 ? (
-                        <p className="text-stone-500 font-serif italic text-lg" style={{ fontFamily: 'var(--font-inria-serif), serif' }}>
-                            No entries available. Add some from the admin panel.
-                        </p>
-                    ) : (
-                        updates.map((item) => (
-                            <div key={item.$id} className="group relative">
-                                {item.photo && (
-                                    <div className="w-full relative overflow-hidden bg-[#1A1A1A] mb-6">
-                                        <img 
-                                            src={item.photo}
-                                            alt="Update"
-                                            className="w-full h-auto object-cover max-h-[80vh] transition-transform duration-1000 group-hover:scale-[1.02]"
-                                        />
+                {updates.length === 0 ? (
+                    <p className="text-center text-gray-500 italic text-base">
+                        No entries available. Add some from the admin panel.
+                    </p>
+                ) : (
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+                        {updates.map((item) => {
+                            const formattedDate = item.post_date
+                                ? new Date(item.post_date).toLocaleDateString('en-GB', {
+                                      day: '2-digit',
+                                      month: '2-digit',
+                                      year: '2-digit',
+                                  })
+                                : '';
+
+                            return (
+                                <div 
+                                    key={item.$id} 
+                                    className="bg-white dark:bg-zinc-900 border border-black/10 dark:border-white/10 p-4 pb-6 shadow-md hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 group flex flex-col justify-between"
+                                >
+                                    {item.photo && (
+                                        <div className="w-full dark:bg-zinc-950 overflow-hidden mb-4 flex items-center justify-center p-1 min-h-[220px]">
+                                            <img 
+                                                src={item.photo}
+                                                alt="Update photo"
+                                                className="w-full h-auto object-contain block max-h-[70vh] group-hover:scale-[1.015] transition-transform duration-500"
+                                            />
+                                        </div>
+                                    )}
+                                    <div className="flex flex-col gap-2 px-1 pt-1">
+                                        {item.description && (
+                                            <p className="text-base md:text-lg font-medium leading-relaxed tracking-tight text-zinc-900 dark:text-zinc-100 whitespace-pre-wrap">
+                                                {item.description}
+                                            </p>
+                                        )}
+                                        {formattedDate && (
+                                            <p className="text-xs md:text-sm font-semibold text-zinc-500 dark:text-zinc-400 tracking-wider font-mono">
+                                                {formattedDate}
+                                            </p>
+                                        )}
                                     </div>
-                                )}
-                                <div className="mt-4 max-w-4xl">
-                                    <p className="text-xl md:text-2xl font-serif text-white tracking-wide mb-4 leading-relaxed whitespace-pre-wrap" style={{ fontFamily: 'var(--font-inria-serif), serif' }}>
-                                        {item.description}
-                                    </p>
-                                    <p className="text-stone-400 text-lg md:text-xl font-light font-mono">
-                                        {new Date(item.post_date).toLocaleDateString('en-GB')}
-                                    </p>
                                 </div>
-                            </div>
-                        ))
-                    )}
-                </div>
+                            );
+                        })}
+                    </div>
+                )}
             </main>
         </div>
     );

@@ -3,17 +3,69 @@
 @tailwind utilities;
 
 @layer base {
-  html {
-    font-family: 'JetBrains Mono', monospace;
+  * {
+    border-radius: 0 !important;
+  }
+
+  html, body {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "SF Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
   }
   
   body {
-    font-family: 'JetBrains Mono', monospace;
+    background-image: url('/bg.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
   }
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+
+  .hover-gradient-text {
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .hover-gradient-text:hover {
+    background: linear-gradient(135deg, #2535eb 0%, #6366f1 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .dark .hover-gradient-text:hover {
+    background: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .quote-banner {
+    width: 100%;
+    text-align: center;
+    padding-top: 2rem;
+    
+    padding-bottom: 1rem;
+    font-size: 1.2rem;
+    font-style: italic;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    color: rgba(55, 65, 81, 0.7);
+    transition: opacity 0.3s ease, color 0.3s ease;
+  }
+
+  .quote-banner:hover {
+    color: rgba(17, 24, 39, 0.95);
+  }
+
+  .dark .quote-banner {
+    color: rgba(209, 213, 219, 0.7);
+  }
+
+  .dark .quote-banner:hover {
+    color: rgba(255, 255, 255, 0.95);
   }
 } 

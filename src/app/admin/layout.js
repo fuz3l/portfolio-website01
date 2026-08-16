@@ -1,9 +1,10 @@
 "use client";
 
-import { AuthProvider, useAuth } from '@/lib/useAuth';
+import { AuthProvider, useAuth } from '@/context/AuthContext';
 import { useRouter, usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
+import Loader from '@/components/Loader';
 
 function AdminContent({ children }) {
     const { user, loading, logout } = useAuth();
@@ -15,12 +16,16 @@ function AdminContent({ children }) {
         if (!loading && !user && pathname !== '/admin/login') {
             router.push('/admin/login');
         } else if (!loading && user && pathname === '/admin/login') {
-            router.push('/admin');
+            router.push('/admin/dashboard');
         }
     }, [user, loading, pathname, router]);
 
     if (loading) {
-        return <div className="min-h-screen flex items-center justify-center bg-black text-white">Loading...</div>;
+        return (
+            <div className="min-h-screen flex items-center justify-center bg-black text-white">
+                <Loader text="pulling content..." />
+            </div>
+        );
     }
 
     if (!user && pathname !== '/admin/login') {
