@@ -28,6 +28,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className="light">
       <head>
+        <link rel="preload" href="/bg.webp" as="image" type="image/webp" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <script

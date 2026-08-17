@@ -3,7 +3,7 @@
 import BackToHome from '@/components/BackToHome';
 import Loader from '@/components/Loader';
 import { useEffect, useState } from 'react';
-import { databases, appwriteConfig } from '@/lib/appwrite';
+import { databases, appwriteConfig, getOptimizedImageUrl } from '@/lib/appwrite';
 import { Query } from 'appwrite';
 
 export default function LifeUpdatesPage() {
@@ -59,7 +59,7 @@ export default function LifeUpdatesPage() {
                     </p>
                 ) : (
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
-                        {updates.map((item) => {
+                        {updates.map((item, index) => {
                             const formattedDate = item.post_date
                                 ? new Date(item.post_date).toLocaleDateString('en-GB', {
                                       day: '2-digit',
@@ -68,16 +68,25 @@ export default function LifeUpdatesPage() {
                                   })
                                 : '';
 
+                            const optimizedUrl = item.photo ? getOptimizedImageUrl(item.photo, { width: 1000, quality: 80, output: 'webp' }) : '';
+
                             return (
                                 <div 
                                     key={item.$id} 
                                     className="bg-white dark:bg-zinc-900 border border-black/10 dark:border-white/10 p-4 pb-6 shadow-md hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 group flex flex-col justify-between"
                                 >
                                     {item.photo && (
-                                        <div className="w-full dark:bg-zinc-950 overflow-hidden mb-4 flex items-center justify-center p-1 min-h-[220px]">
+                                        <div className="w-full dark:bg-zinc-950 overflow-hidden mb-4 flex items-center justify-center p-1 min-h-[220px] bg-gray-100 dark:bg-zinc-800/50 rounded">
                                             <img 
-                                                src={item.photo}
+                                                src={optimizedUrl}
                                                 alt="Update photo"
+                                                loading={index < 2 ? "eager" : "lazy"}
+                                                decoding="async"
+                                                onError={(e) => {
+                                                    if (e.target.src !== item.photo) {
+                                                        e.target.src = item.photo;
+                                                    }
+                                                }}
                                                 className="w-full h-auto object-contain block max-h-[70vh] group-hover:scale-[1.015] transition-transform duration-500"
                                             />
                                         </div>

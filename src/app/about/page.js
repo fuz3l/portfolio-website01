@@ -20,7 +20,7 @@ export default function About() {
             <div className="relative">
               <div className="w-48 h-48 md:w-64 md:h-72 overflow-hidden rounded-lg border border-black/10 dark:border-white/10 shadow-sm">
                 <Image
-                  src="/my1.png"
+                  src="/my1.webp"
                   alt="Fuzail"
                   width={400}
                   height={700}

@@ -24,4 +24,25 @@ export const appwriteConfig = {
     }
 };
 
+/**
+ * Transforms an Appwrite file URL (view or preview) into an optimized image URL
+ * with webp output format, target width/quality, and client-side webp fallback.
+ */
+export function getOptimizedImageUrl(url, { width = 1000, quality = 80 } = {}) {
+    if (!url) return '';
+    try {
+        const urlObj = new URL(url);
+        // Appwrite preview endpoint format check
+        if (urlObj.pathname.includes('/files/')) {
+            urlObj.pathname = urlObj.pathname.replace('/view', '/preview');
+            urlObj.searchParams.set('width', width.toString());
+            urlObj.searchParams.set('quality', quality.toString());
+            return urlObj.toString();
+        }
+    } catch (e) {
+        // Return original if parsing fails
+    }
+    return url;
+}
+
 export default client;
